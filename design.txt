@@ -3,8 +3,11 @@ Theme
 
 Care Needs
 - Hunger
+	- theme name brainstoem
+		- Ink Saturation
+		- 
 	- Feed it pen ink
 	- Pet starts fading from black to gray as it gets hungier
 - Attention
 - Cleanliness
-	- erasing pencil markings off 
+	- erasing pencil markings off

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://d07kpokfndorf"]
+
+[ext_resource type="Script" path="res://test/states/state_machine.gd" id="1_ab2np"]
+[ext_resource type="Script" path="res://test/states/growth.gd" id="2_w1pm8"]
+[ext_resource type="Script" path="res://test/states/shrink.gd" id="3_ph3h3"]
+[ext_resource type="Texture2D" uid="uid://bl0qhlt2lfmjo" path="res://assets/[DemChing] dinos/male/cole/base/avoid.png" id="4_uoxsc"]
+
+[node name="StateMachineTest" type="Node2D"]
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_ab2np")
+initial_state = NodePath("Growth")
+
+[node name="Growth" type="Node" parent="StateMachine" node_paths=PackedStringArray("sprite")]
+script = ExtResource("2_w1pm8")
+growth_rate = 3.0
+sprite = NodePath("../../Sprite2D")
+
+[node name="Shrink" type="Node" parent="StateMachine" node_paths=PackedStringArray("sprite")]
+script = ExtResource("3_ph3h3")
+shrink_rate = 3.0
+sprite = NodePath("../../Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(10, 10)
+texture = ExtResource("4_uoxsc")
+hframes = 3
+
+[node name="Camera2D" type="Camera2D" parent="."]

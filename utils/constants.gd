@@ -6,3 +6,12 @@ enum CareTraitTypes {
 	ATTENTION,
 	CLEANLINESS
 }
+
+enum DebugLevel {
+	FATAL,
+	ERROR,
+	WARN,
+	INFO,
+	DEBUG,
+	TRACE
+}
