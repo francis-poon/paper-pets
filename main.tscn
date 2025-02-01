@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://cjdyngk8xp1fv"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_se5in"]
-[ext_resource type="Script" path="res://care_trait_progress_bars.gd" id="1_yygrh"]
-[ext_resource type="PackedScene" uid="uid://c7ngy74mtvrgk" path="res://pet_00.tscn" id="2_43rcf"]
-[ext_resource type="Script" path="res://care_button.gd" id="3_vt20l"]
+[ext_resource type="Script" path="res://pets/care_traits/care_trait_progress_bars.gd" id="1_yygrh"]
+[ext_resource type="PackedScene" uid="uid://c7ngy74mtvrgk" path="res://pets/pet_00.tscn" id="2_43rcf"]
+[ext_resource type="Script" path="res://pets/care_traits/care_button.gd" id="3_vt20l"]
 [ext_resource type="Texture2D" uid="uid://cokshcv3rrt8e" path="res://assets/background/notebook.png" id="4_76mej"]
 
 [node name="main" type="Node2D" node_paths=PackedStringArray("pet", "care_buttons")]
