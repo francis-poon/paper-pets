@@ -1,0 +1,39 @@
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://i84y1wlmu75y"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8nisi"]
+load_path = "res://.godot/imported/handdrawn_ui_64x64.png-d3e995d54674a86433fa96b6d55b7357.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1e2oh"]
+atlas = SubResource("CompressedTexture2D_8nisi")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x1b37"]
+texture = SubResource("AtlasTexture_1e2oh")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ssgey"]
+load_path = "res://.godot/imported/handdrawn_ui_64x64.png-d3e995d54674a86433fa96b6d55b7357.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmq87"]
+atlas = SubResource("CompressedTexture2D_ssgey")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_voo5r"]
+texture = SubResource("AtlasTexture_wmq87")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_duamv"]
+load_path = "res://.godot/imported/handdrawn_ui_64x64.png-d3e995d54674a86433fa96b6d55b7357.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_563li"]
+atlas = SubResource("CompressedTexture2D_duamv")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ibemy"]
+texture = SubResource("AtlasTexture_563li")
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/styles/hover = SubResource("StyleBoxTexture_x1b37")
+Button/styles/normal = SubResource("StyleBoxTexture_voo5r")
+Button/styles/pressed = SubResource("StyleBoxTexture_ibemy")

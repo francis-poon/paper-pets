@@ -1,10 +1,62 @@
-[gd_scene load_steps=6 format=3 uid="uid://cjdyngk8xp1fv"]
+[gd_scene load_steps=22 format=3 uid="uid://cjdyngk8xp1fv"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_se5in"]
 [ext_resource type="Script" path="res://pets/care_traits/care_trait_progress_bars.gd" id="1_yygrh"]
 [ext_resource type="PackedScene" uid="uid://c7ngy74mtvrgk" path="res://pets/pet_00.tscn" id="2_43rcf"]
 [ext_resource type="Script" path="res://pets/care_traits/care_button.gd" id="3_vt20l"]
 [ext_resource type="Texture2D" uid="uid://cokshcv3rrt8e" path="res://assets/background/notebook.png" id="4_76mej"]
+[ext_resource type="Theme" uid="uid://i84y1wlmu75y" path="res://themes/button_a_256x256.tres" id="4_oeypn"]
+[ext_resource type="Theme" uid="uid://bicdfkrlu6gpe" path="res://themes/button_b_256x256.tres" id="6_dhipe"]
+[ext_resource type="Theme" uid="uid://bstg4vs0dt6ad" path="res://themes/button_c_256x256.tres" id="7_gcjer"]
+[ext_resource type="Texture2D" uid="uid://beh1gr1ogh5nt" path="res://assets/ui/handdrawn_ui_64x64.png" id="9_bsq3u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2tbye"]
+atlas = ExtResource("9_bsq3u")
+region = Rect2(0, 768, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxequ"]
+atlas = ExtResource("9_bsq3u")
+region = Rect2(64, 768, 448, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hd0dk"]
+atlas = ExtResource("9_bsq3u")
+region = Rect2(512, 768, 448, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6juio"]
+atlas = ExtResource("9_bsq3u")
+region = Rect2(0, 832, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cgp5"]
+atlas = ExtResource("9_bsq3u")
+region = Rect2(64, 832, 448, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5uon"]
+atlas = ExtResource("9_bsq3u")
+region = Rect2(512, 832, 448, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvp3j"]
+atlas = ExtResource("9_bsq3u")
+region = Rect2(0, 896, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7grm"]
+atlas = ExtResource("9_bsq3u")
+region = Rect2(64, 896, 448, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvqqo"]
+atlas = ExtResource("9_bsq3u")
+region = Rect2(512, 896, 448, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sg1tt"]
+atlas = ExtResource("9_bsq3u")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iundm"]
+atlas = ExtResource("9_bsq3u")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxwm5"]
+atlas = ExtResource("9_bsq3u")
+region = Rect2(0, 512, 256, 256)
 
 [node name="main" type="Node2D" node_paths=PackedStringArray("pet", "care_buttons")]
 script = ExtResource("1_se5in")
@@ -14,59 +66,158 @@ care_buttons = NodePath("CanvasLayer/CareButtons")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="CareTraitProgressBars" type="VBoxContainer" parent="CanvasLayer" node_paths=PackedStringArray("satiation_bar", "attention_bar", "cleanliness_bar")]
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 89.0
-offset_top = 184.0
-offset_right = -22.0
-offset_bottom = 273.0
+custom_minimum_size = Vector2(350, 90)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -210.0
+offset_top = 196.0
+offset_right = 204.0
+offset_bottom = 306.0
 grow_horizontal = 2
 script = ExtResource("1_yygrh")
-satiation_bar = NodePath("Satiation")
-attention_bar = NodePath("Attention")
-cleanliness_bar = NodePath("Cleanliness")
+satiation_bar = NodePath("SatiationHBoxContainer/Satiation")
+attention_bar = NodePath("AttentionHBoxContainer/Attention")
+cleanliness_bar = NodePath("CleanlinessHBoxContainer/Cleanliness")
 
-[node name="Satiation" type="ProgressBar" parent="CanvasLayer/CareTraitProgressBars"]
+[node name="SatiationHBoxContainer" type="HBoxContainer" parent="CanvasLayer/CareTraitProgressBars"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Attention" type="ProgressBar" parent="CanvasLayer/CareTraitProgressBars"]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="CanvasLayer/CareTraitProgressBars/SatiationHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/CareTraitProgressBars/SatiationHBoxContainer/AspectRatioContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = SubResource("AtlasTexture_2tbye")
+expand_mode = 1
+
+[node name="Satiation" type="TextureProgressBar" parent="CanvasLayer/CareTraitProgressBars/SatiationHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+value = 72.0
+nine_patch_stretch = true
+texture_over = SubResource("AtlasTexture_dxequ")
+texture_progress = SubResource("AtlasTexture_hd0dk")
+
+[node name="AttentionHBoxContainer" type="HBoxContainer" parent="CanvasLayer/CareTraitProgressBars"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Cleanliness" type="ProgressBar" parent="CanvasLayer/CareTraitProgressBars"]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="CanvasLayer/CareTraitProgressBars/AttentionHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/CareTraitProgressBars/AttentionHBoxContainer/AspectRatioContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_6juio")
+expand_mode = 1
+
+[node name="Attention" type="TextureProgressBar" parent="CanvasLayer/CareTraitProgressBars/AttentionHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+value = 72.0
+nine_patch_stretch = true
+texture_over = SubResource("AtlasTexture_5cgp5")
+texture_progress = SubResource("AtlasTexture_s5uon")
+
+[node name="CleanlinessHBoxContainer" type="HBoxContainer" parent="CanvasLayer/CareTraitProgressBars"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="CanvasLayer/CareTraitProgressBars/CleanlinessHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/CareTraitProgressBars/CleanlinessHBoxContainer/AspectRatioContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_qvp3j")
+expand_mode = 1
+
+[node name="Cleanliness" type="TextureProgressBar" parent="CanvasLayer/CareTraitProgressBars/CleanlinessHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+value = 72.0
+nine_patch_stretch = true
+texture_over = SubResource("AtlasTexture_q7grm")
+texture_progress = SubResource("AtlasTexture_jvqqo")
 
 [node name="CareButtons" type="HBoxContainer" parent="CanvasLayer"]
-anchors_preset = 2
+anchors_preset = 7
+anchor_left = 0.5
 anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 107.0
-offset_top = -281.0
-offset_right = 415.0
-offset_bottom = -174.0
+offset_left = -154.0
+offset_top = -238.0
+offset_right = 154.0
+offset_bottom = -131.0
+grow_horizontal = 2
 grow_vertical = 0
 
 [node name="Feed" type="Button" parent="CanvasLayer/CareButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Feed"
+focus_mode = 0
+theme = ExtResource("4_oeypn")
 script = ExtResource("3_vt20l")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/CareButtons/Feed"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_sg1tt")
+expand_mode = 1
 
 [node name="Play" type="Button" parent="CanvasLayer/CareButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Play"
+focus_mode = 0
+theme = ExtResource("6_dhipe")
 script = ExtResource("3_vt20l")
 care_trait = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/CareButtons/Play"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_iundm")
+expand_mode = 1
 
 [node name="Clean" type="Button" parent="CanvasLayer/CareButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Clean"
+focus_mode = 0
+theme = ExtResource("7_gcjer")
 script = ExtResource("3_vt20l")
 care_trait = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/CareButtons/Clean"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_hxwm5")
+expand_mode = 1
 
 [node name="Pet00" parent="." instance=ExtResource("2_43rcf")]
 
@@ -80,8 +231,9 @@ layer = -1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -547.0
-offset_right = 102.0
+offset_left = -548.0
+offset_right = 45.0
+offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_76mej")

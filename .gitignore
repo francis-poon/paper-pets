@@ -1,3 +1,7 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+# Krita specific ignores
+*autosave.kra
+*.kra~

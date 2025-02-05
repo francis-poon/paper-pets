@@ -1,0 +1,32 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://bstg4vs0dt6ad"]
+
+[ext_resource type="Texture2D" uid="uid://beh1gr1ogh5nt" path="res://assets/ui/handdrawn_ui_64x64.png" id="1_cgs4d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lou5b"]
+atlas = ExtResource("1_cgs4d")
+region = Rect2(512, 512, 256, 256)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5ftld"]
+texture = SubResource("AtlasTexture_lou5b")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s07ps"]
+atlas = ExtResource("1_cgs4d")
+region = Rect2(256, 512, 256, 256)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bedur"]
+texture = SubResource("AtlasTexture_s07ps")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21b60"]
+atlas = ExtResource("1_cgs4d")
+region = Rect2(768, 512, 256, 256)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_66j31"]
+texture = SubResource("AtlasTexture_21b60")
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/styles/hover = SubResource("StyleBoxTexture_5ftld")
+Button/styles/normal = SubResource("StyleBoxTexture_bedur")
+Button/styles/pressed = SubResource("StyleBoxTexture_66j31")
