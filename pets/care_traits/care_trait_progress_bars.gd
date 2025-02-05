@@ -1,8 +1,8 @@
 extends VBoxContainer
 
-@export var satiation_bar: ProgressBar
-@export var attention_bar: ProgressBar
-@export var cleanliness_bar: ProgressBar
+@export var satiation_bar: TextureProgressBar
+@export var attention_bar: TextureProgressBar
+@export var cleanliness_bar: TextureProgressBar
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
