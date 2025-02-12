@@ -219,7 +219,7 @@ grow_vertical = 2
 texture = SubResource("AtlasTexture_hxwm5")
 expand_mode = 1
 
-[node name="Pet00" parent="." instance=ExtResource("2_43rcf")]
+[node name="Pet00" parent="." groups=["saveable"] instance=ExtResource("2_43rcf")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(10, 10)

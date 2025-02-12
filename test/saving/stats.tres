@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="TestStats" load_steps=2 format=3 uid="uid://b4ij3qu7hcuga"]
+
+[ext_resource type="Script" path="res://test/saving/stats.gd" id="1_7h2h6"]
+
+[resource]
+script = ExtResource("1_7h2h6")
+t_val = 6
