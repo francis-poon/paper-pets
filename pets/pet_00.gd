@@ -14,13 +14,12 @@ enum PetState {
 @export var _care_traits_container: Node
 @export var _initial_state: PetState
 @export var _animation_player: AnimationPlayer
+var _save_file_name: String = "pet_00.tres"
 
 var care_trait_dict = {}
 var current_state: PetState
+var pet_data: PetData
 
-
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
 
 func _ready() -> void:
 	for child in _care_traits_container.get_children():
@@ -113,3 +112,21 @@ func _set_state(new_state: PetState):
 			_animation_player.play("hungry")
 		PetState.DIRTY:
 			_animation_player.play("dirty")
+
+func save_data(save_dir: String):
+	for state in care_trait_dict.keys():
+		pet_data.trait_data[state] = (care_trait_dict[state] as CareTrait).trait_value
+	pet_data.current_state = current_state
+	var result = ResourceSaver.save(pet_data, save_dir + _save_file_name)
+	if result != OK:
+		print(result)
+
+func load_data(save_dir: String):
+	pet_data = ResourceLoader.load(save_dir + _save_file_name)
+	if not pet_data or pet_data is not PetData:
+		pet_data = PetData.new()
+		return
+	for state in pet_data.trait_data.keys():
+		if care_trait_dict.has(state):
+			(care_trait_dict[state] as CareTrait).trait_value = pet_data.trait_data[state]
+	_set_state(pet_data.current_state)

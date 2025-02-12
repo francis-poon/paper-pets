@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ueu0rp56fg51"]
+
+[ext_resource type="Script" path="res://test/saving/save_test_0.gd" id="1_ucgpl"]
+[ext_resource type="Resource" uid="uid://b4ij3qu7hcuga" path="res://test/saving/stats.tres" id="2_rewyn"]
+
+[node name="SaveTest0" type="Node2D" node_paths=PackedStringArray("label")]
+script = ExtResource("1_ucgpl")
+resource = ExtResource("2_rewyn")
+label = NodePath("Label")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 253.0
+offset_bottom = 167.0
+theme_override_font_sizes/font_size = 100
+text = "100"
