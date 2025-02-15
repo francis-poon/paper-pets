@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cjdyngk8xp1fv"]
+[gd_scene load_steps=26 format=3 uid="uid://cjdyngk8xp1fv"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_se5in"]
 [ext_resource type="Script" path="res://pets/care_traits/care_trait_progress_bars.gd" id="1_yygrh"]
@@ -6,9 +6,12 @@
 [ext_resource type="Script" path="res://pets/care_traits/care_button.gd" id="3_vt20l"]
 [ext_resource type="Texture2D" uid="uid://cokshcv3rrt8e" path="res://assets/background/notebook.png" id="4_76mej"]
 [ext_resource type="Theme" uid="uid://i84y1wlmu75y" path="res://themes/button_a_256x256.tres" id="4_oeypn"]
+[ext_resource type="AudioStream" uid="uid://bwo01hwijftga" path="res://assets/audio/sfx/pen-write-01.mp3" id="6_bdvcf"]
 [ext_resource type="Theme" uid="uid://bicdfkrlu6gpe" path="res://themes/button_b_256x256.tres" id="6_dhipe"]
 [ext_resource type="Theme" uid="uid://bstg4vs0dt6ad" path="res://themes/button_c_256x256.tres" id="7_gcjer"]
+[ext_resource type="AudioStream" uid="uid://dn0yk2ypijklk" path="res://assets/audio/sfx/paper-crinkle-01.mp3" id="8_lqbw7"]
 [ext_resource type="Texture2D" uid="uid://beh1gr1ogh5nt" path="res://assets/ui/handdrawn_ui_64x64.png" id="9_bsq3u"]
+[ext_resource type="AudioStream" uid="uid://kcupxk5tjh8f" path="res://assets/audio/sfx/pencil-eraser-erasing-01.mp3" id="10_fsej4"]
 [ext_resource type="AudioStream" uid="uid://de8prooax2q26" path="res://assets/audio/music/kevin_macleod-pickled_pink.mp3" id="10_ommnx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2tbye"]
@@ -173,6 +176,7 @@ size_flags_horizontal = 3
 focus_mode = 0
 theme = ExtResource("4_oeypn")
 script = ExtResource("3_vt20l")
+audio = ExtResource("6_bdvcf")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/CareButtons/Feed"]
 layout_mode = 1
@@ -191,6 +195,7 @@ focus_mode = 0
 theme = ExtResource("6_dhipe")
 script = ExtResource("3_vt20l")
 care_trait = 1
+audio = ExtResource("8_lqbw7")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/CareButtons/Play"]
 layout_mode = 1
@@ -209,6 +214,8 @@ focus_mode = 0
 theme = ExtResource("7_gcjer")
 script = ExtResource("3_vt20l")
 care_trait = 2
+audio = ExtResource("10_fsej4")
+volume = 20.0
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/CareButtons/Clean"]
 layout_mode = 1
@@ -239,10 +246,14 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_76mej")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="BGMPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
 stream = ExtResource("10_ommnx")
-volume_db = -13.118
+volume_db = -18.0
 autoplay = true
 parameters/looping = true
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
 
 [connection signal="care_trait_changed" from="Pet00" to="CanvasLayer/CareTraitProgressBars" method="_on_care_trait_changed"]
